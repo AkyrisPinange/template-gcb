@@ -35,6 +35,7 @@ const Doctors: React.FC = () => {
     
     async function loadDoctors(){
         const response = await api.get('/InfoDoctorsSpecialties/')
+console.log(response)
 
         setDoctors(response.data);
     }
@@ -43,10 +44,13 @@ const Doctors: React.FC = () => {
       history.push('/doctors_register')
     }
 
-    function EditDoctor(){
-      history.push('/doctors_register')
-    }
+    
 
+    async function EditDoctor(id: string){
+
+      history.push('/doctors_register')
+  
+    }
 
   return (
     <div className="container">
@@ -84,7 +88,6 @@ const Doctors: React.FC = () => {
               <td>{doctor.UF}</td>
               <td>
                 <Button size='sm' variant="warning">Editar</Button>{' '}
-                <Button size='sm' variant="success">Visualizar</Button>{' '}
                 <Button size='sm' variant="danger">Remover</Button>{' '}
               </td>
             </tr>
